@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript - Add HTML Table Row </title>
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script>
+        
+        function addRow() {
+            var liczba = document.getElementById('liczba').value;
+            
+            var table = document.getElementsByTagName('table')[0];
+            var newRow = table.insertRow(table.rows.length );
+            var cel1 = newRow.insertCell(0);
+            var cel2 = newRow.insertCell(1);
+            var cel3 = newRow.insertCell(2);
+            
+            
+            cel1.innerHTML = "1";
+            cel2.innerHTML = liczba;
+            cel3.innerHTML = "1" * liczba;
+        }
+    </script>
+</head>
+<body>
+    Numer dziennika zawsze taki sam <br></br>
+    Wpisz kolejna liczbe: <input type="text" name="liczba" id="liczba" /><br /><br />
+    
+    <button onclick="addRow();">Add</button><br /><br />
+    <table border="1">
+        <tr>
+            <th>Numer dziennika:</th>
+            <th>Kolejna liczba:</th>
+            <th>Wynik mnozenia:</th>
+        </tr>
+    </table>
+</body>
+</html> 
