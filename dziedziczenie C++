@@ -1,0 +1,66 @@
+ #include <iostream>
+
+
+using namespace std;
+
+class osoba {
+
+   string imie, nazwisko;
+
+public:
+   void wyswietl()
+   {
+      cout<<imie<<" "<<nazwisko<<endl;
+   }
+
+   void wprowadz()
+   {
+      cout<<"Podaj imie ";
+      cin>>imie;
+      cout<<"Podaj nazwisko ";
+      cin>>nazwisko;
+   }
+};
+
+class uczen : public osoba {
+
+   string klasa,numer,imie, nazwisko,przedmiot;
+
+
+public:
+   void wyswietl_ucznia() {
+      osoba::wyswietl();
+      cout<<klasa<<endl;
+      cout<<numer<<endl;
+   }
+   void wprowadz_nauczyciela(){
+   	cout<<"Imie i nazwisko oraz przedmiot nauczyciela\n";
+   	osoba::wprowadz();
+      cout<<"Podaj przedmiot";
+      cin>>przedmiot;
+   }
+
+	void wyswietl_nauczyciela(){
+		osoba::wyswietl();
+		cout<<przedmiot<<endl;
+	}
+   void wprowadz_ucznia() {
+       wprowadz();
+        cout<<"Podaj klase ";
+      cin>>klasa;
+      cout<<"Podaj numer ";
+      cin>>numer;
+   }
+};
+
+int main()
+{
+    uczen a1;
+    a1.wprowadz_ucznia();
+    a1.wyswietl_ucznia();
+    a1.wprowadz_nauczyciela();
+    a1.wyswietl_nauczyciela();
+    
+
+    return 0;
+}
