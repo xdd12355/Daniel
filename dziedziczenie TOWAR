@@ -1,0 +1,78 @@
+ #include <iostream>
+
+
+using namespace std;
+
+class towar {
+
+   string cena,id, nazwa;
+
+public:
+   void wyswietl()
+   {
+      cout<<cena<<" "<<id<<" "<<nazwa<<endl;
+   }
+
+   void wprowadz()
+   {
+      cout<<"Podaj cene towaru ";
+      cin>>cena;
+      cout<<"Podaj id towaru ";
+      cin>>id;
+      cout<<"Podaj nazwe towaru";
+      cin>>nazwa;
+   }
+};
+
+class buty : public towar {
+
+   string rozmiar,kolor,model,cena,id, nazwa;
+
+
+public:
+   void wyswietl_towar() {
+      towar::wyswietl();
+      cout<<rozmiar<<endl;
+      cout<<kolor<<endl;
+      cout<<model<<endl;
+   }
+   void wprowadz_buty(){
+   	towar::wprowadz();
+   	cout<<"Podaj rozmiar butow\n";
+   	cin>>rozmiar;
+      cout<<"Podaj kolor butow\n";
+      cin>>kolor;
+       cout<<"Podaj model butow\n";
+      cin>>model;
+   }
+void wyswietl_buty(){
+		towar::wyswietl();
+		cout<<rozmiar<<endl;
+		cout<<kolor<<endl;
+		cout<<model<<endl;
+	}
+	void wyswietl_paste(){
+		towar::wyswietl();
+		cout<<kolor<<endl;
+	}
+   void wprowadz_paste() {
+       wprowadz();
+        cout<<"Podaj kolor pasty\n ";
+      cin>>kolor;
+      
+   }
+};
+
+int main()
+{
+    buty a1;
+    a1.wprowadz();
+    a1.wyswietl_towar();
+    a1.wprowadz_buty();
+    a1.wyswietl_buty();
+    a1.wprowadz_paste();
+    a1.wyswietl_paste();
+    
+
+    return 0;
+}
