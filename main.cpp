@@ -1,125 +1,99 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <cstdlib>
+#include <math.h>
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 using namespace std;
-int wynik = 1;
-int liczba = 0;
-int moc = 0;
-int moc_liczby = 0;
-class pliki{
-	
-	public:
-		int wczytaj_z_pliku(const char *nazwa)
-		{
-			fstream plik;
-			if(plik.good())  
-            while(!plik.eof())  
-                  {
-                   
-                plik.open(nazwa,ios::in);  
-				{
-		                plik>>liczba;
-				}
-                   }
-                   
-                   plik.close();  
-                   
-		};
-		
-		
-	
-	
-	
-};
-
-class liczby{
-
-	public:
-
-			
-		int rozdzielanie(){
-		while (liczba>0)
-		{ 
-		
-		cout<<"liczba-->"<<liczba<<endl;
-		int cyfra = liczba %10;
-		liczba /= 10;
-		wynik = wynik * cyfra;
-		cout<<"wynik->"<<wynik<<endl;
-		}
-			sprawdz();
-		};
-		
-		
-		int sprawdz(){
-			
-		if(wynik>9)
-		{	
-			dalej();
-		}
-		else
-		{
-		
-			koniec();
-		}
-		
-		};
-		int dalej(){
-			moc++;	
-			moc_liczby++;
-			liczba=wynik;
-			wynik=1;	
-			return rozdzielanie();	
-		};	
-		int koniec(){
-				moc++;
-			moc_liczby++;
-			cout<<"KONIEC"<<endl<<endl<<endl<<"MOC----->"<<moc;
-		};
-		
-	
-};
 
 
-class kubelki{
-	
-	public:
-	int kubeczek()
-	{
-    int moc_liczby[5] = {0,0,0,0,0};
-    if(moc == 0)
+   int convert(int decimal)
     {
-        moc_liczby[1]++;
+        int i = 1, octal = 0;
+        //converting decimal to octal
+        while (decimal != 0)
+        {
+            int rem = decimal % 8;
+            decimal /= 8;
+            octal += rem * i;
+            i *= 10;
+        }
+        return octal;
     }
-    else if(moc == 1)
-    {
-        moc_liczby[2]++;
-    }
-    else if(moc == 2)
-    {
-        moc_liczby[3]++;
-    }
-    else if(moc == 3)
-    {
-        moc_liczby[4]++;
-    }
-    else if(moc == 4)
-    {
-        moc_liczby[5]++;
-    }
-	}    
-
-};
-
+    
 int main(int argc, char** argv) {
-	pliki x;
-	x.wczytaj_z_pliku("a.txt");
 	
-	liczby y;
-	y.rozdzielanie();
+
+	
+	fstream plik;  
+	
+
+			int liczba=0;
+			int liczba1;
+			int r=0;
+			int ile=0;
+			int ilee=0;
+								 int i = 1;
+					 int o = 0;
+			plik.open("liczby2.txt", ios::in); 
+			if(plik.good()) 
+			while(!plik.eof()) 
+			      {
+			  		plik>>liczba;
+			  		while(liczba!=0)
+			  		{
+			  			 r=liczba%10;
+        				 liczba=liczba/10;
+						  
+						  	if(r==6)
+						  	{
+						  		ile++;
+							  }
+					  }
+					  
+
+					}
+				
+
+			   
+			     plik.close(); 
+			     
+			     
+			     
+			plik.open("liczby2.txt", ios::in); 
+			if(plik.good()) 
+			while(!plik.eof()) 
+			      {
+					  
+					 plik>>liczba;
+					 
+
+					liczba1=convert(liczba);
+				        
+									 
+					  while(liczba1!=0)
+			  		{
+			  			 r=liczba1%10;
+        				 liczba1=liczba1/10;
+						  
+						  	if(r==6)
+						  	{
+						  		ilee++;
+							  }
+					  }
+			  		
+					
+					}
+				
+
+			   
+			     plik.close(); 
+			     
+				cout<<"Daniel Bilski"<<endl<<"przed ---> "<<ile<<endl;
+				cout<<"po ---> "<<ilee;
+						
+			   
 	
 	
-	kubelki z;
-	z.kubeczek();
 	return 0;
 }
