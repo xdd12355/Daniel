@@ -1,0 +1,37 @@
+#include <cstdlib>
+#include <iostream>
+#include <time.h>
+
+using namespace std;
+
+int i, j, suma; 
+int losuj[ 10 ][ 10 ]; 
+
+int main()
+{
+   
+    srand( time( 0 ) );
+   
+    for( j = 0; j < 10; j++ ) {
+       
+        for( i = 0; i < 10; i++ )
+        {
+            losuj[ j ][ i ] =(( rand() % 4 ) + 1 );
+            cout << losuj[ j ][ i ] << " ";
+        }
+        cout << endl;
+    }
+    
+    
+    
+  int suma=0;
+    for(int i=0;i<10;i++)
+    for	(int j=0;j<10;j++)
+	
+	
+        suma+=losuj[i][j];
+    
+    cout << "Suma liczb w tablicy wynosi : " << suma;
+    
+    return 0;
+}
