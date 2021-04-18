@@ -1,0 +1,17 @@
+img{
+    width: 1024px;
+    height: 500px;
+    border-radius: 1px;
+}
+.splide-container{
+    width: 1024;
+
+
+}
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

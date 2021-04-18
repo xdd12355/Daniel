@@ -1,0 +1,37 @@
+<html>
+
+<center><h1>SPLIDER GIF</h1></center>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+    </head>
+
+        <body>
+    <div class="main-container">
+        <div class="splide-container">
+            <div id="splide" class="splide">
+                <div class="splide__track">
+                  <ul class="splide__list">
+                    <li class="splide__slide"><img src="https://media.giphy.com/media/xThuWu82QD3pj4wvEQ/giphy.gif" ></li>
+                    <li class="splide__slide"><img src="https://media.giphy.com/media/LHZyixOnHwDDy/giphy.gif" ></li>
+                    <li class="splide__slide"><img src="https://media.giphy.com/media/3ov9jQX2Ow4bM5xxuM/giphy.gif" ></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+        </body>
+
+        <script>
+            var i = 0;
+            var pictures = document.getElementsByClassName( 'splide' );
+            for (i = 0, len = pictures.length; i < len; i++ ) {
+                new Splide( pictures[ i ] ).mount();
+
+            }
+        </script>
+
+
+    </html>
