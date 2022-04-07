@@ -1,0 +1,146 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+struct Samochod
+{
+	int numer;		 //kolejny
+	string marka;
+	string model;
+	int rok;                 
+	double cena;
+}; 
+
+
+const int n=200;
+Samochod tab [n];
+
+int rozmiar()
+{
+	string model , marka;
+	int rok , numer;
+	double cena;
+	
+	ifstream plik;
+	plik.open("baza.txt");
+	int rozm = 0;
+	
+	while(!plik.eof())
+	{
+		plik>>numer;
+		plik>>marka;
+		plik>>model;
+		plik>>rok;
+		plik>>cena;
+		
+		rozm += 1;
+	}
+	
+	plik.close();
+	return rozm-1;
+}
+
+void zpliku(int n)
+{
+	ifstream plik;
+	plik.open("baza.txt");
+	
+	for(int i=0;i<n;i++)
+	{
+		plik>>tab[i].numer;
+		plik>>tab[i].marka;
+		plik>>tab[i].model;
+		plik>>tab[i].rok;
+		plik>>tab[i].cena;
+	//	cout<<tab[i].model;
+	}
+	plik.close();
+}
+
+void dopliku(int n)
+{
+     	ofstream plik;
+     	plik.open("baza.txt");
+     	for (int i=0;i<n;i++)
+     	{
+		plik<<tab[i].numer<<endl;
+		plik<<tab[i].marka<<endl;
+		plik<<tab[i].model<<endl;
+		plik<<tab[i].rok<<endl;
+		plik<<tab[i].cena<<endl;
+		plik<<endl;
+    }
+        plik.close(); 
+ }
+ 
+
+
+int main()
+{	
+    int i=0;
+    int znak;
+    
+    int ile=rozmiar();
+   // cout<<ile;
+    zpliku(ile);
+    
+   	do
+	{
+
+	cout<<"		Dopisanie nowego somochodu/smochodow 		wcisnij - 1\n";
+	cout<<"		Wypisanie wszystkich samochodow  		wcisnij - 2\n";	
+	cout<<"		Wyjscie z programu                   		wcisnij - 0\n";	
+	cout<<"Co chcesz robic ??\n";	
+	cin>>znak;	
+	
+	switch(znak)
+	{
+		case 1:
+		{
+        ile=ile+1;
+        i=ile-1;
+       // cout<<"ile z dodaj"<<ile;
+		tab[i].numer = ile;
+		cout<<"Podaj marke :\n";
+		cin>>tab[i].marka;
+		cout<<"Podaj model:\n";
+		cin>>tab[i].model;
+		cout<<"Podaj rok produkcji :\n";
+		cin>>tab[i].rok;
+		cout<<"Podaj cene samochodu :\n";
+		cin>>tab[i].cena;
+	    
+        break;
+		}
+		case 2:
+		{
+ 	       for (int i=0;i<ile;i++)
+     	   {
+		    cout<<tab[i].numer<<endl;
+		    cout<<tab[i].marka<<endl;
+		    cout<<tab[i].model<<endl;
+		    cout<<tab[i].rok<<endl;
+		    cout<<tab[i].cena<<endl;
+		    cout<<endl;
+    }
+             break;
+         }
+    	case 0:
+		{
+			dopliku(ile);
+            cout<<"Dziekuje! Dowidzenia ;p ;)\n";
+		
+			//break;
+		}
+	}
+	}while(znak != 0);
+    
+    
+	
+	
+	
+	
+	
+	return 0;
+}
